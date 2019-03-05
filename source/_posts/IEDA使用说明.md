@@ -20,7 +20,7 @@ categories: Hexo
 ### 2.项目准备阶段
 
 #### 2.1环境依赖
-    1.maven选择的是3.5.0版本以上的，具体的配置过程如下：
+1.maven选择的是3.5.0版本以上的，具体的配置过程如下：
 + 单击IDEA状态栏的file->setting-> 直接在搜索框输入maven，如下图所示
 
 ![maven](http://pkzuokcq8.bkt.clouddn.com/myfile/20190108142914.png)
@@ -67,14 +67,19 @@ localRepository是本地依赖下载存储的位置,
 ![](http://pkzuokcq8.bkt.clouddn.com/myfile/20190108151807.png)
 
 要注意的是在点finish之前看一下项目的路径，放在自己预设的项目工作空间
->**需要注意的是，所有的文件夹都不能使用中文**
+
+
+**需要注意的是，所有的文件夹都不能使用中文**
 
 #### 二. 新建框架模块
-    在父项目下,选择新建模块,Spring Initializr,选中Custom输入如下地址：http://192.168.17.18:8080/cloud/ 或者http://118.112.188.108:9289/cloud/ 然后点next.
+
+在父项目下,选择新建模块,Spring Initializr,选中Custom输入如下地址：http://192.168.17.18:8080/cloud/ 或者http://118.112.188.108:9289/cloud/ 然后点next.
  ![](http://pkzuokcq8.bkt.clouddn.com/myfile/20190108152310.png)
 
  ![](http://pkzuokcq8.bkt.clouddn.com/myfile/20190108152438.png)
+
  ![](http://pkzuokcq8.bkt.clouddn.com/myfile/20190108152607.png)
+
  补全包项目的信息，然后点击next界面，这里会有需要用到的依赖选择
 
 #### 三 、功能模块的选择
@@ -93,7 +98,7 @@ localRepository是本地依赖下载存储的位置,
 ![](http://pkzuokcq8.bkt.clouddn.com/myfile/20190108153102.png)
 
 #### 四 、完成项目创建
-        后面按照默认操作，不需要更改，项目创建完成之后，可能会出现报错，这个是犹豫缺少依赖，这个时候，进入maven里面，因为每次都会恢复到默认，需要手动勾选maven配置，然后回到主项目上点右键。
+后面按照默认操作，不需要更改，项目创建完成之后，可能会出现报错，这个是犹豫缺少依赖，这个时候，进入maven里面，因为每次都会恢复到默认，需要手动勾选maven配置，然后回到主项目上点右键。
    ![](http://pkzuokcq8.bkt.clouddn.com/myfile/20190108153529.png)
 
 项目重新构建，这个时候，会自动下载相关需要用到的依赖。     
@@ -104,44 +109,54 @@ localRepository是本地依赖下载存储的位置,
 
 **在这里创建的smartmodule即为子模块，项目的小模块开发，大部分的已经开发完成**
 *****
-> 完成maven更新的时候，如果还是出现依赖错误的情况，我们可以先注释掉不需要的依赖
+ 完成maven更新的时候，如果还是出现依赖错误的情况，我们可以先注释掉不需要的依赖
 
     <artifactId>ta404-component-cachemg</artifactId>
     <artifactId>ta404-component-logmg</artifactId>  
     <artifactId>ta404-module-cluster</artifactId>
     <artifactId>ta404-module-registry-zookeeper</artifactId>
 
+
+**在application.yml配置中，讲集群和控制中心都改成false，暂且不开启，在上一步骤中事先已经将相关依赖注释掉了**
+
+![](https://raw.githubusercontent.com/supbadboy/image/master/20190228114305.png)
+
+
 + 到这里项目构建基本完成
 
 #### 五 、编写一个完成的业务
 
-    1.准备好数据库连接
+1.准备好数据库连接
 
 ![](http://pkzuokcq8.bkt.clouddn.com/myfile/20190108155406.png)  
 
-    2.这里是选择使用oracle，然后进入到DataSource界面
+2.这里是选择使用oracle，然后进入到DataSource界面
 
 ![](http://pkzuokcq8.bkt.clouddn.com/myfile/20190108162413.png)
 
-    3.填写你需要连接的数据库，输入完成之后，点击test connection测试是否能够连接
+3.填写你需要连接的数据库，输入完成之后，点击test connection测试是否能够连接
     可能会出现的是，没有此按钮在，这说明你没有安装oracle插件，点击driver旁边插件自动下载，下载完成测试是否完成。
  ![](http://pkzuokcq8.bkt.clouddn.com/myfile/20190108163050.png)
 
-    4.完成之后你就可以看到数据库里面的数据表
-    5.使用银海插件工具，进行代码自动生成
+4.完成之后你就可以看到数据库里面的数据表
+
+
+5.使用银海插件工具，进行代码自动生成
 ![](http://pkzuokcq8.bkt.clouddn.com/myfile/20190108164409.png)
 
-    6.在数据库表中，选择任意一个表，右键表名->代码生成工具->代码生成
+6.在数据库表中，选择任意一个表，右键表名->代码生成工具->代码生成
 ![](http://pkzuokcq8.bkt.clouddn.com/myfile/20190108164853.png)
 
-    7.第一次生成的时候出了.xml和.json不勾选，其它都选中，然后勾选禁止提示，这个时候它会自动在test下面自动创建相关文件
+7.第一次生成的时候出了.xml和.json不勾选，其它都选中，然后勾选禁止提示，这个时候它会自动在test下面自动创建相关文件
 ![](http://pkzuokcq8.bkt.clouddn.com/myfile/20190108165458.png) 
     
-    8.检查每个文件夹下创建的类是否有问题，或者是有缺失，如果有缺少的话，单独选择重新创建。
-    9.mapper映射文件的自动生成，重新进入代码生成界面，其他路径不改，path路径是选择src/main/resources/mapper，然后选择readMapper.xml和writeMapper.xml自动生成sql映射文件。
+8.检查每个文件夹下创建的类是否有问题，或者是有缺失，如果有缺少的话，单独选择重新创建。
+
+
+9.mapper映射文件的自动生成，重新进入代码生成界面，其他路径不改，path路径是选择src/main/resources/mapper，然后选择readMapper.xml和writeMapper.xml自动生成sql映射文件。
 ![](http://pkzuokcq8.bkt.clouddn.com/myfile/20190108165937.png)
 
-    10.代码生成完成之后，在application-DataSource.yml中完成相关包的扫码
+10.代码生成完成之后，在application-DataSource.yml中完成相关包的扫码
 ![](http://pkzuokcq8.bkt.clouddn.com/myfile/20190108170146.png)
 
 ##  4. 工程配置说明
