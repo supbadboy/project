@@ -100,6 +100,14 @@ categories: Geode
 
     `import cluster-configuration --zip-file-name=/home/username/configs/myClusterConfig.zip`
 
+16. 连接集群
+
+    `connect --locator=localhost[30033]`
+
+17. 使用geode查询数据，先连接到指定的集群，然后执行以下命令
+
+    `query --query = "select * from regionA`
+
 
 ### geode其他命令
 + 启动gfhs  `gfsh`
