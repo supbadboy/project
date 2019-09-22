@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>详情</title>
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../font/font_1428331_fqrejgwv1op/iconfont.css">
+    <style>
+        #header-box {
+            height: 80px;
+        }
+
+        .content-box {
+            width: 100%;
+        }
+
+        #box {
+
+            width: 1200px;
+            margin: 50px auto;
+            position: relative;
+        }
+
+        .left-img-box {
+            width: 600px;
+            height: 400px;
+            margin-left: 200px;
+
+        }
+
+        .left-img-box img {
+            width: 100%;
+            height: 100%;
+            background: #eee;
+        }
+
+        .right-list {
+            width: 90px;
+            height: 210px;
+            position: absolute;
+            right: 10%;
+            bottom: 20px;
+        }
+
+        .right-list li {
+            height: 50px;
+            width: 90px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        .right-list li:hover {
+            border: 1px solid #d49977;
+        }
+
+
+        .right-list li img {
+            width: 100%;
+            height: 100%;
+            background: #eee;
+        }
+
+        #bigBox {
+            width: 300px;
+            height: 300px;
+            float: left;
+            /* margin-left:50px;  */
+            overflow: hidden;
+            position: relative;
+        }
+
+        #bigBox img {
+            position: absolute;
+            width: 1350px;
+            height: 900px;
+        }
+
+        #shadow {
+            margin-left: 200px;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.8);
+            overflow: hidden;
+            position: absolute;
+            left: 0;
+            top: 0;
+
+        }
+
+
+        .pro-cont {
+
+            overflow: hidden;
+            width: 1200px;
+            margin: 50px auto;
+            padding-bottom: 30px;
+            border-bottom: #D8D8D8 solid 1px;
+        }
+
+        .cont-left {
+            width: 484px;
+            float: left;
+            padding-left: 150px;
+        }
+
+        .cont-right {
+            width: 500px;
+            float: left;
+            padding-top: 20px;
+        }
+
+        .cont-title {
+            font-size: 20px;
+            line-height: 28px;
+            padding-top: 20px;
+        }
+
+        .sub-title {
+            min-height: 17px;
+            line-height: 17px;
+            color: #FF3933;
+        }
+
+        .cont-label {
+            margin: 20px 0 14px;
+            font-size: 0;
+        }
+
+        .cont-label a {
+            display: inline-block;
+            line-height: 18px;
+            color: #D5BFA7;
+            padding: 0 10px;
+            border: 1px solid #D5BFA7;
+            border-radius: 100px;
+            margin-right: 6px;
+            font-size: 12px;
+        }
+
+        .cont-explain {
+            font-size: 12px;
+            width: 484px;
+            line-height: 2em;
+            min-height: 30px;
+        }
+
+        .cont-price {
+
+            line-height: 40px;
+            font-size: 18px;
+            z-index: 10;
+            color: #C69C6D;
+        }
+
+        .cont-price span {
+            font-size: 26px;
+        }
+
+        .cont-count {
+            margin-top: 15px;
+            color: #C69C6D;
+            font-size: 15px;
+        }
+
+        .cont-count input {
+            width: 40px;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            border-radius: 3px;
+            text-align: center;
+        }
+
+        .cont-button-buy {
+            width: 167px;
+            height: 30px;
+            text-align: center;
+            font-size: 13px;
+            line-height: 30px;
+            float: left;
+            background: #F4F4F4;
+            color: #7A5844;
+        }
+
+        .cont-button {
+            margin-top: 20px;
+        }
+
+        .cont-button-cart {
+            width: 167px;
+            height: 30px;
+            text-align: center;
+            font-size: 13px;
+            line-height: 30px;
+            float: left;
+            margin-left: 10px;
+            background: #684029;
+            color: #fff;
+        }
+
+        .cont-img {
+            margin-top: 12px;
+            overflow: hidden;
+            width: 1200px;
+            margin: 50px auto;
+        }
+
+        .cont-img img {
+
+            text-align: left;
+            display: block;
+            max-width: 100%;
+
+        }
+
+        .cont-text {
+            margin-top: 12px;
+            overflow: hidden;
+            width: 1200px;
+            margin: 50px auto;
+        }
+
+        .cont-tip,.cont-tip-explain {
+            padding-left: 60px;
+          margin-bottom: 25px;
+            line-height: 25px
+        }
+        .little-tip{
+            margin-bottom: 10px;
+        }
+      
+    </style>
+</head>
+
+<body>
+    <div id="header-box"></div>
+    <div class="content-box">
+        <div id="box">
+            <div class="left-img-box">
+                <img src="../image/details1.jpg" alt="" draggable="false" id="smallImg">
+            </div>
+            <div id="shadow">
+                <div id="bigBox">
+                    <img id="bigImg" src="../image/details1.jpg" draggable="false">
+                </div>
+
+
+
+            </div>
+            <ul class="right-list">
+                <li data-small="../image/details1.jpg" data-big="../image/details1.jpg"><img src="../image/details1.jpg"
+                        draggable="false"></li>
+                <li data-small="../image/birth2.png" data-big="../image/birth2.png"><img src="../image/birth2.png"
+                        draggable="false"></li>
+                <li data-small="../image/birth3.png" data-big="../image/birth3.png"><img src="../image/birth3.png"
+                        draggable="false"></li>
+
+            </ul>
+        </div>
+        <div class="pro-cont">
+            <div class="cont-left">
+                <h1 class="cont-title">丹麦组合</h1>
+                <div class="sub-title">
+                    <p>限区域上海(A30绕城以内),北京(五环以内)蛮39包邮</p>
+                </div>
+                <div class="cont-label">
+                    <a href="">儿童</a>
+                    <a href="">人气</a>
+                    <a href="">总有一款适合你</a>
+                </div>
+                <div class="cont-explain">
+                    /真正的美好生活/ <br>
+                    /是每天早晨/ <br>
+                    /案上都有新烤的面包/<br>
+                </div>
+
+            </div>
+            <div class="cont-right">
+                <div class="cont-price">
+                    价格:<br>
+                    ¥ <span>58.40</span>/一份
+                </div>
+                <div class="cont-count">
+                    数量: <input type="number" value="1">份
+                </div>
+                <div class="cont-button">
+                    <div class="cont-button-buy">立即购买</div>
+                    <div class="cont-button-cart">加入购物车</div>
+                </div>
+
+            </div>
+
+
+
+        </div>
+        <ul class="cont-img">
+            <li><img src="../image/ditalbig1.jpg" alt=""></li>
+            <li><img src="../image/ditalbig2.jpg" alt=""></li>
+            <li><img src="../image/ditalbig3.jpg" alt=""></li>
+            <li><img src="../image/ditalbig4.jpg" alt=""></li>
+            <li><img src="../image/ditalbig5.jpg" alt=""></li>
+            <li><img src="../image/ditalbig6.jpg" alt=""></li>
+            <li><img src="../image/ditalbig7.jpg" alt=""></li>
+        </ul>
+        <div class="cont-text">
+            <div class="cont-tip">
+                <p class="little-tip">小提示</p>
+                <p class="little-tip">1.1、蛋糕规格及免费配送餐具 ：</p>
+                <table class="little-tip">
+                    <tr>
+                        <td>0.25磅：约6×6(cm)</td>
+                        <td>适合1人食用</td>
+                        <td>免费配送1套餐具</td>
+                    </tr>
+                    <tr>
+                        <td>1.0 磅：约13×13(cm)</td>
+                        <td>适合3-4人食用</td>
+                        <td>免费配送5套餐具</td>
+                    </tr>
+                </table>
+                <p>2、蛋糕在收到后2-3小时内食用为佳。 </p>
+                <p class="little-tip">3、如对上述食材有过敏经历者，请选择其它款蛋糕。 </p>
+                
+            </div>
+            <div class="cont-tip-explain">
+                <p class="little-tip">退改说明：</p>
+                <p>1.北京、上海、广州地区距配送时间6小时及以上的订单可修改、取消、退订；距配送时间不足5小时，订单不再支持修改、取消、退订。（22点之后不接受次日14点之前配送订单修改、退订）</p>
+                <p>2.苏州、无锡、深圳、天津、杭州距配送时间不足24小时，订单不再支持修改、取消、退订。（22点之后不接受次日16点之前配送订单修改、退订）</p>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+    </div>
+    <div id="footer-box"> </div>
+</body>
+<script src="../js/jquery-1.11.3.js"></script>
+<script>
+      $("#header-box").load("header1.html");
+    $("#footer-box").load("http://127.0.0.1:5500/layout/footer.html");
+
+
+    $(".right-list li").mouseover(function () {
+        $("#smallImg").attr("src", $(this).attr("data-small"))
+        $("#bigImg").attr("src", $(this).attr("data-big"))
+    })
+
+
+
+    var maxX = ($(".left-img-box").width()) - (parseInt($("#shadow").css("width")));
+    var maxY = (parseInt($(".left-img-box").css("height"))) - (parseInt($("#shadow").css("height")));
+    $("#shadow").on("mousemove", function (e) {
+
+        $("#shadow").css("display", "block");
+
+        var evt = window.event || e;
+        var startX = evt.pageX;
+        var startY = evt.pageY;
+
+        var x = startX - parseInt($(this).width()) / 2 - ($(".left-img-box").offset().left);
+        var y = startY - parseInt($(this).css("height")) / 2 - ($(".left-img-box").offset().top);
+
+        if (x <= 0) {
+            x = 0;
+        }
+
+        if (y <= 0) {
+            y = 0;
+        }
+
+        if (x >= maxX) {
+            x = maxX;
+        }
+
+        if (y >= maxY) {
+            y = maxY;
+        }
+
+        $(this).css("left", x + "px");
+        $(this).css("top", y + "px");
+
+        $("#bigImg").css({
+
+            "left": -$("#bigImg").width() * x / $(".left-img-box").width(),
+
+            "top": -$("#bigImg").height() * y / $(".left-img-box").height() - 80,
+
+        });
+
+    });
+</script>
+
+</html>

@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>21cake蛋糕官网</title>
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../font/font_1428331_fqrejgwv1op/iconfont.css">
+    <style>
+        #header-box {
+            height: 80px;
+        }
+
+        #slideshow-box {
+            width: 100%;
+            height: 500px;
+            position: relative;
+        }
+
+        #slideshow-box .nav {
+            position: absolute;
+            width: 100px;
+            height: 30px;
+            left: 725px;
+            bottom: 15px;
+            /* background-color: rgba(110, 110, 110, 0.8); */
+            border-radius: 30px;
+        }
+
+        #slideshow-box .nav li {
+            float: left;
+            width: 10px;
+            height: 10px;
+            background-color: white;
+            color: aliceblue;
+            border-radius: 50%;
+            margin-top: 5px;
+            margin-left: 7px;
+            cursor: pointer;
+        }
+
+        #slideshow-box .nav li.selected {
+            background-color: black;
+        }
+
+        #slideshow-box .content {
+            width: 100%;
+            height: 500px;
+        }
+
+        #slideshow-box .content li {
+            width: 100%;
+            height: 500px;
+            display: none;
+        }
+
+        #slideshow-box .content li.selected {
+            display: block;
+        }
+
+        #slideshow-box .content li img {
+            width: 100%;
+            height: 500px;
+        }
+
+        .content-box {
+            width: 1200px;
+            margin: 0 auto;
+            padding-bottom: 50px;
+        }
+
+        .home-menu {
+            width: 1124px;
+            margin: 26px auto 0;
+            overflow: hidden;
+            padding-top: 0;
+        }
+
+        .home-menu a {
+            display: block;
+            float: left;
+            margin: 6px 12px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+        }
+
+        .home-menu img {
+            display: block;
+            width: 200px;
+            height: 100px;
+            background-size: auto 100%;
+            opacity: 0.9;
+        }
+
+        .home-new,
+        .home-birth {
+            margin-top: 5px;
+        }
+
+        .new-tittle {
+            font-size: 26px;
+            color: #724228;
+            line-height: 36px;
+            width: 1100px;
+            margin: 0 auto 20px;
+            font-weight: 400;
+            padding-top: 50px;
+        }
+
+        .new-tittle span {
+            font-size: 14px;
+            color: #8E5D43;
+            display: inline-block;
+            margin-left: 6px;
+        }
+
+        .new-banner {
+            margin-top: -100px;
+            padding-top: 100px;
+            margin-left: 55px;
+        }
+
+        .new-list {
+            position: relative;
+            margin-left: 55px;
+        }
+
+        .list-box {
+            height: 365px;
+        }
+
+        .home-left-button {
+            margin-left: -618px;
+            opacity: 0.3;
+            cursor: default;
+        }
+
+        .home-right-button {
+            margin-left: 572px;
+
+        }
+
+        .list-box ul {
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .list-box li {
+            position: relative;
+            height: 365px;
+            float: left;
+            width: 263px;
+            margin-top: 20px;
+            margin-right: 15px;
+        }
+
+        .list-box li:last-child {
+            margin-right: 0;
+        }
+
+        .list-box li img {
+            width: 263px;
+            height: 230px;
+            background-size: auto 100%;
+            display: block;
+            margin: auto;
+            border-radius: 8px;
+            background: #fafafa
+        }
+
+        .list-box li h6 {
+            font-size: 16px;
+            margin-top: 10px;
+            line-height: 22px;
+            color: #000;
+        }
+
+        .list-box li p {
+            font-size: 14px;
+            color: #616161;
+            line-height: 24px;
+        }
+
+        .list-box li .tag-list {
+            font-size: 0;
+            width: 263px;
+            height: 35px;
+            overflow: hidden;
+        }
+
+        .list-box li .tag-list a {
+            display: inline-block;
+            border: 1px solid #D5BFA7;
+            border-radius: 100px;
+            padding: 0 6px 0 8px;
+            color: #D5BFA7;
+            margin: 8px 3px;
+            font-size: 12px;
+        }
+
+        .list-box li .cart-info {
+            border-top: 1px dashed #D5BFA7;
+            height: 37px;
+            color: #b0986f;
+            margin-top: 6px;
+            padding-top: 0px;
+            -webkit-font-smoothing: antialiased;
+            position: relative;
+        }
+
+        .list-box li .spec {
+            display: block;
+            line-height: 14px;
+            color: #BB9772;
+            font-size: 14px;
+            position: absolute;
+            left: 0;
+            bottom: 4px;
+            max-width: 165px;
+        }
+
+        .list-box li .add-cart {
+            display: block;
+            line-height: 20px;
+            font-size: 12px;
+            background: #643E28;
+            color: #fff;
+            padding: 0 10px;
+            position: absolute;
+            right: 0;
+            bottom: 0px;
+        }
+
+        .list-box li .addcart-success {
+            position: absolute;
+            box-sizing: border-box;
+            padding: 12px;
+            background: #FAFAFA;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            display: none;
+            z-index: 1001;
+        }
+
+        .list-box li .addcart-success {
+            position: absolute;
+            box-sizing: border-box;
+            padding: 12px;
+            background: #FAFAFA;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            display: none;
+            z-index: 1001;
+        }
+
+        .list-box li .addcart-success p {
+            text-align: center;
+            font-size: 14px;
+            color: #B08C7E;
+            line-height: 25px;
+            padding: 26px 0 15px;
+        }
+
+        .list-box li .addcart-success p i {
+            display: inline-block;
+            height: 25px;
+            width: 25px;
+            vertical-align: middle;
+            background-position: -266px -40px;
+            background-size: 310px 120px;
+            margin-right: 6px;
+        }
+
+        .list-box li .addcart-success .button {
+            background: #684029;
+            color: #fff;
+            font-size: 13px;
+            height: 30px;
+            width: 148px;
+            display: block;
+            line-height: 30px;
+            text-align: center;
+            margin: 2px auto 14px;
+        }
+
+        .discount-content {
+            width: 1116px;
+            margin: 0 auto;
+            overflow: hidden;
+            padding: 6px 0;
+        }
+
+        .discount-content li {
+            float: left;
+            background: #fff;
+            box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.10);
+            border-radius: 8px;
+            overflow: hidden;
+            width: 542px;
+            margin: 0 8px;
+        }
+
+        .footer {
+            background: #333;
+            padding: 50px 0 0 0;
+            position: relative;
+        }
+
+        .footer-logo {
+            display: block;
+            margin: 0 auto;
+            width: 96px;
+            height: 36px;
+        }
+
+        .footer-logo img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .footer-nav {
+            text-align: center;
+            color: #fff;
+            margin: 25px 0;
+        }
+
+        .footer-nav a {
+            color: #fff;
+            display: inline-block;
+            margin: 0 50px;
+        }
+
+        .footer-icon {
+            text-align: center;
+        }
+
+        .footer-icon a {
+            display: inline-block;
+            border-radius: 25px;
+            height: 50px;
+            width: 50px;
+            background: #494949;
+            margin: 0 25px;
+            font-size: 16px;
+            color: #fff;
+            line-height: 50px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .footer-icon a>img {
+            height: 30px;
+            margin: 10px;
+        }
+
+        .footer-text {
+            color: #9a9a9a;
+            text-align: center;
+            margin-top: 25px;
+            line-height: 18px;
+            font-size: 10px;
+        }
+
+        .footer-text span {
+            display: block;
+        }
+
+        .footer-text span:first-child {
+            font-weight: bold;
+        }
+
+        .footer-copyright {
+            margin: 0 auto;
+            border-top: 1px solid #616161;
+            margin-top: 15px;
+            text-align: center;
+            padding-bottom: 15px;
+            font-size: 10px;
+            padding-top: 12px;
+        }
+
+        .footer-copyright span {
+            color: #9a9a9a;
+            line-height: 1.5em;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header-box"></div>
+    <div id="slideshow-box">
+        <ul class="nav">
+            <li class="selected"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <ul class="content">
+            <li class="selected">
+                <img src="../image/lb1.png">
+            </li>
+            <li>
+                <img src="../image/lb2.png">
+            </li>
+            <li>
+                <img src="../image/lb3.png">
+            </li>
+            <li>
+                <img src="../image/lb4.png">
+            </li>
+        </ul>
+    </div>
+    <div class="content-box">
+        <div class="home-menu">
+            <a href="#1"><img src="../image/menu1.jpg" alt=""></a>
+            <a href="#2"><img src="../image/menu2.jpg" alt=""></a>
+            <a href="#3"><img src="../image/menu3.jpg" alt=""></a>
+            <a href="#4"><img src="../image/menu4.jpg" alt=""></a>
+            <a href="#5"><img src="../image/menu5.png" alt=""></a>
+        </div>
+        <div class="home-new" id="1">
+            <h4 class="new-tittle">
+                "新品"<span>/</span>
+                <span>专区</span>
+            </h4>
+            <div class="new-banner">
+                <a href="">
+                    <img src="../image/new.jpg" alt="">
+                </a>
+            </div>
+            <div class="new-list">
+                <div class="list-box">
+                    <ul>
+                        <li>
+                            <a href=""><img src="../image/new1.png" alt=""></a>
+                            <a href="">
+                                <h6>米道</h6>
+                            </a>
+                            <a href="">
+                                <p>天真、天然，是这款蛋糕唯一的出发点</p>
+                            </a>
+
+                            <div class="tag-list">
+                                <a href="">儿童</a>
+                                <a href="">生日</a>
+                                <a href="">人气</a>
+                            </div>
+                            <div class="cart-info">
+                                <span class="spec">¥298.00/454g(1.0磅)</span>
+                                <a href="" class="add-cart">加入购物车</a>
+                            </div>
+                            <div class="spec-detail">
+                                <div class="spe-title">￥36.0/份</div>
+                                <div class="spec-info"> </div>
+                                <div class="buttons">
+                                    <div class="button">立即购买</div>
+                                    <div class="button">加入购物车</div>
+                                </div>
+
+                            </div>
+                            <div class="addcart-success">
+                                <div>
+                                    <p>
+                                        <i></i>
+                                        "成功加入购物车"
+                                    </p>
+                                    <a href="" class="button">查看购物车</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a href=""><img src="../image/new2.png" alt=""></a>
+                            <a href="">
+                                <h6>中秋坚果慕斯</h6>
+                            </a>
+                            <a href="">
+                                <p class="sl">月光如果可以凝固，一定是芝士慕斯的味道</p>
+                            </a>
+                            <div class="tag-list">
+                                <a href="">聚会</a>
+                                <a href="">中秋节</a>
+                                <a href="">新品</a>
+                            </div>
+                            <div class="cart-info">
+                                <span class="spec">¥268.00/454g(1.0磅)</span>
+                                <a href="" class="add-cart">加入购物车</a>
+                            </div>
+                            <div class="spec-detail">
+                                <div class="spe-title">￥36.0/份</div>
+                                <div class="spec-info"> </div>
+                                <div class="buttons">
+                                    <div class="button">立即购买</div>
+                                    <div class="button">加入购物车</div>
+                                </div>
+
+                            </div>
+                            <div class="addcart-success">
+                                <div>
+                                    <p>
+                                        <i></i>
+                                        "成功加入购物车"
+                                    </p>
+                                    <a href="" class="button">查看购物车</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a href=""><img src="../image/new3.png" alt=""></a>
+                            <a href="">
+                                <h6>3天慕斯月饼</h6>
+                            </a>
+                            <a href="">
+                                <p>3天,即一生</p>
+                            </a>
+                            <div class="tag-list">
+                                <a href="">聚会</a>
+                                <a href="">聚会</a>
+                                <a href="">中秋节</a>
+                            </div>
+                            <div class="cart-info">
+                                <span class="spec">¥398.00/420g(枚(三个口味))</span>
+                                <a href="" class="add-cart">加入购物车</a>
+                            </div>
+                            <div class="spec-detail">
+                                <div class="spe-title">￥36.0/份</div>
+                                <div class="spec-info"> </div>
+                                <div class="buttons">
+                                    <div class="button">立即购买</div>
+                                    <div class="button">加入购物车</div>
+                                </div>
+
+                            </div>
+                            <div class="addcart-success">
+                                <div>
+                                    <p>
+                                        <i></i>
+                                        "成功加入购物车"
+                                    </p>
+                                    <a href="" class="button">查看购物车</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a href=""><img src="../image/new4.png" alt=""></a>
+                            <a href="">
+                                <h6>浅草</h6>
+                            </a>
+                            <a href="">
+                                <p>浅草才能没马蹄</p>
+                            </a>
+                            <div class="tag-list">
+                                <a href="">新品</a>
+                                <a href="">人气</a>
+                                <a href="">生日</a>
+                                <a href="">相识</a>
+                            </div>
+                            <div class="cart-info">
+                                <span class="spec">¥298.00/908g(2.0磅)</span>
+                                <a href="" class="add-cart">加入购物车</a>
+                            </div>
+                            <div class="spec-detail">
+                                <div class="spe-title">￥36.0/份</div>
+                                <div class="spec-info"> </div>
+                                <div class="buttons">
+                                    <div class="button">立即购买</div>
+                                    <div class="button">加入购物车</div>
+                                </div>
+
+                            </div>
+                            <div class="addcart-success">
+                                <div>
+                                    <p>
+                                        <i></i>
+                                        "成功加入购物车"
+                                    </p>
+                                    <a href="" class="button">查看购物车</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="home-left-button"></div>
+                <div class="home-right-button"></div>
+            </div>
+        </div>
+        <div class="home-birth" id="2">
+            <h4 class="new-tittle">
+                生日<span>/</span>
+                <span>专区</span>
+            </h4>
+            <div class="new-banner">
+                <a href="">
+                    <img src="../image/birth.jpg" alt="">
+                </a>
+            </div>
+            <div class="new-list">
+                <div class="list-box">
+                    <ul>
+                        <li>
+                            <a href=""><img src="../image/birth1.png" alt=""></a>
+                            <a href="">
+                                <h6>米道</h6>
+                            </a>
+                            <a href="">
+                                <p>天真、天然，是这款蛋糕唯一的出发点</p>
+                            </a>
+
+                            <div class="tag-list">
+                                <a href="">儿童</a>
+                                <a href="">生日</a>
+                                <a href="">人气</a>
+                            </div>
+                            <div class="cart-info">
+                                <span class="spec">¥298.00/454g(1.0磅)</span>
+                                <a href="" class="add-cart">加入购物车</a>
+                            </div>
+                            <div class="spec-detail">
+                                <div class="spe-title">￥36.0/份</div>
+                                <div class="spec-info"> </div>
+                                <div class="buttons">
+                                    <div class="button">立即购买</div>
+                                    <div class="button">加入购物车</div>
+                                </div>
+
+                            </div>
+                            <div class="addcart-success">
+                                <div>
+                                    <p>
+                                        <i></i>
+                                        "成功加入购物车"
+                                    </p>
+                                    <a href="" class="button">查看购物车</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a href=""><img src="../image/birth2.png" alt=""></a>
+                            <a href="">
+                                <h6>中秋坚果慕斯</h6>
+                            </a>
+                            <a href="">
+                                <p class="sl">月光如果可以凝固，一定是芝士慕斯的味道</p>
+                            </a>
+                            <div class="tag-list">
+                                <a href="">聚会</a>
+                                <a href="">中秋节</a>
+                                <a href="">新品</a>
+                            </div>
+                            <div class="cart-info">
+                                <span class="spec">¥268.00/454g(1.0磅)</span>
+                                <a href="" class="add-cart">加入购物车</a>
+                            </div>
+                            <div class="spec-detail">
+                                <div class="spe-title">￥36.0/份</div>
+                                <div class="spec-info"> </div>
+                                <div class="buttons">
+                                    <div class="button">立即购买</div>
+                                    <div class="button">加入购物车</div>
+                                </div>
+
+                            </div>
+                            <div class="addcart-success">
+                                <div>
+                                    <p>
+                                        <i></i>
+                                        "成功加入购物车"
+                                    </p>
+                                    <a href="" class="button">查看购物车</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a href=""><img src="../image/birth3.png" alt=""></a>
+                            <a href="">
+                                <h6>3天慕斯月饼</h6>
+                            </a>
+                            <a href="">
+                                <p>3天,即一生</p>
+                            </a>
+                            <div class="tag-list">
+                                <a href="">聚会</a>
+                                <a href="">聚会</a>
+                                <a href="">中秋节</a>
+                            </div>
+                            <div class="cart-info">
+                                <span class="spec">¥398.00/420g(枚(三个口味))</span>
+                                <a href="" class="add-cart">加入购物车</a>
+                            </div>
+                            <div class="spec-detail">
+                                <div class="spe-title">￥36.0/份</div>
+                                <div class="spec-info"> </div>
+                                <div class="buttons">
+                                    <div class="button">立即购买</div>
+                                    <div class="button">加入购物车</div>
+                                </div>
+
+                            </div>
+                            <div class="addcart-success">
+                                <div>
+                                    <p>
+                                        <i></i>
+                                        "成功加入购物车"
+                                    </p>
+                                    <a href="" class="button">查看购物车</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a href=""><img src="../image/birth4.png" alt=""></a>
+                            <a href="">
+                                <h6>浅草</h6>
+                            </a>
+                            <a href="">
+                                <p>浅草才能没马蹄</p>
+                            </a>
+                            <div class="tag-list">
+                                <a href="">新品</a>
+                                <a href="">人气</a>
+                                <a href="">生日</a>
+                                <a href="">相识</a>
+                            </div>
+                            <div class="cart-info">
+                                <span class="spec">¥298.00/908g(2.0磅)</span>
+                                <a href="" class="add-cart">加入购物车</a>
+                            </div>
+                            <div class="spec-detail">
+                                <div class="spe-title">￥36.0/份</div>
+                                <div class="spec-info"> </div>
+                                <div class="buttons">
+                                    <div class="button">立即购买</div>
+                                    <div class="button">加入购物车</div>
+                                </div>
+
+                            </div>
+                            <div class="addcart-success">
+                                <div>
+                                    <p>
+                                        <i></i>
+                                        "成功加入购物车"
+                                    </p>
+                                    <a href="" class="button">查看购物车</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="home-left-button"></div>
+                <div class="home-right-button"></div>
+            </div>
+        </div>
+        <div class="home-child" id="3">
+            <h4 class="new-tittle">
+                儿童<span>/</span>
+                <span>专区</span>
+            </h4>
+            <div class="new-banner">
+                <a href="">
+                    <img src="../image/child.jpg" alt="">
+                </a>
+            </div>
+            <div class="new-list">
+                <div class="list-box">
+                    <ul>
+                        <li>
+                            <a href=""><img src="../image/child1.png" alt=""></a>
+                            <a href="">
+                                <h6>米道</h6>
+                            </a>
+                            <a href="">
+                                <p>天真、天然，是这款蛋糕唯一的出发点</p>
+                            </a>
+
+                            <div class="tag-list">
+                                <a href="">儿童</a>
+                                <a href="">生日</a>
+                                <a href="">人气</a>
+                            </div>
+                            <div class="cart-info">
+                                <span class="spec">¥298.00/454g(1.0磅)</span>
+                                <a href="" class="add-cart">加入购物车</a>
+                            </div>
+                            <div class="spec-detail">
+                                <div class="spe-title">￥36.0/份</div>
+                                <div class="spec-info"> </div>
+                                <div class="buttons">
+                                    <div class="button">立即购买</div>
+                                    <div class="button">加入购物车</div>
+                                </div>
+
+                            </div>
+                            <div class="addcart-success">
+                                <div>
+                                    <p>
+                                        <i></i>
+                                        "成功加入购物车"
+                                    </p>
+                                    <a href="" class="button">查看购物车</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a href=""><img src="../image/child2.png" alt=""></a>
+                            <a href="">
+                                <h6>中秋坚果慕斯</h6>
+                            </a>
+                            <a href="">
+                                <p class="sl">月光如果可以凝固，一定是芝士慕斯的味道</p>
+                            </a>
+                            <div class="tag-list">
+                                <a href="">聚会</a>
+                                <a href="">中秋节</a>
+                                <a href="">新品</a>
+                            </div>
+                            <div class="cart-info">
+                                <span class="spec">¥268.00/454g(1.0磅)</span>
+                                <a href="" class="add-cart">加入购物车</a>
+                            </div>
+                            <div class="spec-detail">
+                                <div class="spe-title">￥36.0/份</div>
+                                <div class="spec-info"> </div>
+                                <div class="buttons">
+                                    <div class="button">立即购买</div>
+                                    <div class="button">加入购物车</div>
+                                </div>
+
+                            </div>
+                            <div class="addcart-success">
+                                <div>
+                                    <p>
+                                        <i></i>
+                                        "成功加入购物车"
+                                    </p>
+                                    <a href="" class="button">查看购物车</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a href=""><img src="../image/child3.png" alt=""></a>
+                            <a href="">
+                                <h6>3天慕斯月饼</h6>
+                            </a>
+                            <a href="">
+                                <p>3天,即一生</p>
+                            </a>
+                            <div class="tag-list">
+                                <a href="">聚会</a>
+                                <a href="">聚会</a>
+                                <a href="">中秋节</a>
+                            </div>
+                            <div class="cart-info">
+                                <span class="spec">¥398.00/420g(枚(三个口味))</span>
+                                <a href="" class="add-cart">加入购物车</a>
+                            </div>
+                            <div class="spec-detail">
+                                <div class="spe-title">￥36.0/份</div>
+                                <div class="spec-info"> </div>
+                                <div class="buttons">
+                                    <div class="button">立即购买</div>
+                                    <div class="button">加入购物车</div>
+                                </div>
+
+                            </div>
+                            <div class="addcart-success">
+                                <div>
+                                    <p>
+                                        <i></i>
+                                        "成功加入购物车"
+                                    </p>
+                                    <a href="" class="button">查看购物车</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a href=""><img src="../image/child4.png" alt=""></a>
+                            <a href="">
+                                <h6>浅草</h6>
+                            </a>
+                            <a href="">
+                                <p>浅草才能没马蹄</p>
+                            </a>
+                            <div class="tag-list">
+                                <a href="">新品</a>
+                                <a href="">人气</a>
+                                <a href="">生日</a>
+                                <a href="">相识</a>
+                            </div>
+                            <div class="cart-info">
+                                <span class="spec">¥298.00/908g(2.0磅)</span>
+                                <a href="" class="add-cart">加入购物车</a>
+                            </div>
+                            <div class="spec-detail">
+                                <div class="spe-title">￥36.0/份</div>
+                                <div class="spec-info"> </div>
+                                <div class="buttons">
+                                    <div class="button">立即购买</div>
+                                    <div class="button">加入购物车</div>
+                                </div>
+
+                            </div>
+                            <div class="addcart-success">
+                                <div>
+                                    <p>
+                                        <i></i>
+                                        "成功加入购物车"
+                                    </p>
+                                    <a href="" class="button">查看购物车</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="home-left-button"></div>
+                <div class="home-right-button"></div>
+            </div>
+        </div>
+        <div class="home-party" id="4">
+            <h4 class="new-tittle">
+                聚会<span>/</span>
+                <span>专区</span>
+            </h4>
+            <div class="new-banner">
+                <a href="">
+                    <img src="../image/party.jpg" alt="">
+                </a>
+            </div>
+            <div class="new-list">
+                <div class="list-box">
+                    <ul>
+                        <li>
+                            <a href=""><img src="../image/party1.png" alt=""></a>
+                            <a href="">
+                                <h6>米道</h6>
+                            </a>
+                            <a href="">
+                                <p>天真、天然，是这款蛋糕唯一的出发点</p>
+                            </a>
+
+                            <div class="tag-list">
+                                <a href="">儿童</a>
+                                <a href="">生日</a>
+                                <a href="">人气</a>
+                            </div>
+                            <div class="cart-info">
+                                <span class="spec">¥298.00/454g(1.0磅)</span>
+                                <a href="" class="add-cart">加入购物车</a>
+                            </div>
+                            <div class="spec-detail">
+                                <div class="spe-title">￥36.0/份</div>
+                                <div class="spec-info"> </div>
+                                <div class="buttons">
+                                    <div class="button">立即购买</div>
+                                    <div class="button">加入购物车</div>
+                                </div>
+
+                            </div>
+                            <div class="addcart-success">
+                                <div>
+                                    <p>
+                                        <i></i>
+                                        "成功加入购物车"
+                                    </p>
+                                    <a href="" class="button">查看购物车</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a href=""><img src="../image/party2.png" alt=""></a>
+                            <a href="">
+                                <h6>中秋坚果慕斯</h6>
+                            </a>
+                            <a href="">
+                                <p class="sl">月光如果可以凝固，一定是芝士慕斯的味道</p>
+                            </a>
+                            <div class="tag-list">
+                                <a href="">聚会</a>
+                                <a href="">中秋节</a>
+                                <a href="">新品</a>
+                            </div>
+                            <div class="cart-info">
+                                <span class="spec">¥268.00/454g(1.0磅)</span>
+                                <a href="" class="add-cart">加入购物车</a>
+                            </div>
+                            <div class="spec-detail">
+                                <div class="spe-title">￥36.0/份</div>
+                                <div class="spec-info"> </div>
+                                <div class="buttons">
+                                    <div class="button">立即购买</div>
+                                    <div class="button">加入购物车</div>
+                                </div>
+
+                            </div>
+                            <div class="addcart-success">
+                                <div>
+                                    <p>
+                                        <i></i>
+                                        "成功加入购物车"
+                                    </p>
+                                    <a href="" class="button">查看购物车</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a href=""><img src="../image/party3.png" alt=""></a>
+                            <a href="">
+                                <h6>3天慕斯月饼</h6>
+                            </a>
+                            <a href="">
+                                <p>3天,即一生</p>
+                            </a>
+                            <div class="tag-list">
+                                <a href="">聚会</a>
+                                <a href="">聚会</a>
+                                <a href="">中秋节</a>
+                            </div>
+                            <div class="cart-info">
+                                <span class="spec">¥398.00/420g(枚(三个口味))</span>
+                                <a href="" class="add-cart">加入购物车</a>
+                            </div>
+                            <div class="spec-detail">
+                                <div class="spe-title">￥36.0/份</div>
+                                <div class="spec-info"> </div>
+                                <div class="buttons">
+                                    <div class="button">立即购买</div>
+                                    <div class="button">加入购物车</div>
+                                </div>
+
+                            </div>
+                            <div class="addcart-success">
+                                <div>
+                                    <p>
+                                        <i></i>
+                                        "成功加入购物车"
+                                    </p>
+                                    <a href="" class="button">查看购物车</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a href=""><img src="../image/party4.png" alt=""></a>
+                            <a href="">
+                                <h6>浅草</h6>
+                            </a>
+                            <a href="">
+                                <p>浅草才能没马蹄</p>
+                            </a>
+                            <div class="tag-list">
+                                <a href="">新品</a>
+                                <a href="">人气</a>
+                                <a href="">生日</a>
+                                <a href="">相识</a>
+                            </div>
+                            <div class="cart-info">
+                                <span class="spec">¥298.00/908g(2.0磅)</span>
+                                <a href="" class="add-cart">加入购物车</a>
+                            </div>
+                            <div class="spec-detail">
+                                <div class="spe-title">￥36.0/份</div>
+                                <div class="spec-info"> </div>
+                                <div class="buttons">
+                                    <div class="button">立即购买</div>
+                                    <div class="button">加入购物车</div>
+                                </div>
+
+                            </div>
+                            <div class="addcart-success">
+                                <div>
+                                    <p>
+                                        <i></i>
+                                        "成功加入购物车"
+                                    </p>
+                                    <a href="" class="button">查看购物车</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="home-left-button"></div>
+                <div class="home-right-button"></div>
+            </div>
+        </div>
+        <div class="home-discount" id="5">
+            <h4 class="new-tittle">
+                活动门<span>/</span>
+                <span>是被吸引了吧</span>
+            </h4>
+            <ul class="discount-content">
+                <li>
+                    <a href="">
+                        <img src="../image/discount.jpg" alt="">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer">
+        <img class="footer-logo" src="../image/footer-logo.png" alt="">
+        <div class="footer-nav">
+            <a href="">联系我们</a><span>|</span>
+            <a href="">订购帮助</a><span>|</span>
+            <a href="">企业合作</a><span>|</span>
+            <a href="">生产经营资质</a><span>|</span>
+            <a href="">公告专区</a>
+        </div>
+        <div class="footer-icon">
+            <a href="" class="MicroBlog">
+                <img src="../image/WeChat (2).png" alt="">
+            </a>
+            <a href="" class="footer-WeChat">
+                <img src="../image/WeChat (1).png" alt="">
+            </a>
+            <a href="" class="footer-app">
+                APP
+            </a>
+        </div>
+        <div class="footer-text">
+            <span>订购专线: 400 650 2121 (服务时间08:00-22:00) ，企业团购热线: 021-37768396
+            </span>
+            <span>客服电话: 021-23099721 (全国)，kefu@21cake.com ( 邮箱) </span>
+            <span>杭州/广州：提前5小时预订；北京：提前6小时预订；上海：提前5.5-6小时预订；天津/苏州/无锡/深圳：提前8小时预订（
+                部分偏远地区除外，当日22点以后订单，于次日8点开始审核） </span>
+            <span>当日蛋糕配送截止下单时间:北京/上海: 16:30; 杭州/广州: 14:00; 天津: 10:30; 苏
+                州/无锡/深圳: 11:00</span>
+            <span>网站注册公司名称:北京廿一客食品有限公司地址:北京市北京经济技术开发区兴海二
+                街5号院3号楼</span>
+        </div>
+
+        <div class="footer-copyright">
+            <span>
+                Copyrighto 21Cake蛋 糕官网商城2007-2019, 版权所有
+                <a style="color: #9a9a9a" target="blank" href="http://www. miitbeian _gov. cn/">京
+                    ICP备14006254号-1</a>
+            </span>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+</body>
+<script src="../js/jquery-1.11.3.js"></script>
+<script>
+    $("#header-box").load("header1.html");
+    //轮播图
+    $("#slideshow-box ul li").mouseover(function () {
+        $(this).siblings().attr("class", "");
+        $(this).attr("class", "selected");
+        var i = $(this).index();
+        $("#slideshow-box .content li").eq(i).attr("class", "selected");
+        $("#slideshow-box .content li").eq(i).siblings().attr("class", "");
+    })
+
+    var item = 0;
+    setInterval(function () {
+        item++
+        if (item > 3) {
+            item = 0;
+        }
+        $("#slideshow-box ul li").each(function () {
+            $(".nav li").eq(item).siblings().attr("class", "");
+            $(".nav li").eq(item).attr("class", "selected");
+
+            $(".content li").eq(item).attr("class", "selected");
+            $(".content li").eq(item).siblings().attr("class", "");
+        })
+
+    }, 4000)
+</script>
+
+</html>

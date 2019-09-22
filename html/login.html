@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录</title>
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../font/font_1428331_fqrejgwv1op/iconfont.css">
+    <style>
+        #header-box {
+            height: 80px;
+        }
+
+        .login-background {
+
+            background: url(../image/bj.png) no-repeat top center;
+            height: 700px;
+        }
+
+
+        .content-box {
+            width: 1180px;
+            margin: 0 auto;
+            position: relative;
+            height: 100%;
+            padding-bottom: 50px;
+        }
+
+        .from-login-box {
+            position: absolute;
+            width: 302px;
+            top: 114px;
+            left: 60%;
+            padding: 28px 42px;
+            border: 1px #E9E9E9 solid;
+            background: #fff;
+        }
+
+        .login-title {
+            height: 25px;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .login-title h2 {
+            font-weight: 400;
+
+        }
+
+        .form-content {
+            padding-top: 15px;
+            text-align: center;
+        }
+
+        .form-content input {
+
+            width: 250px;
+            height: 30px;
+            border: #E9E9E9 1px solid;
+            border-radius: 5px;
+            margin-bottom: 20px;
+
+        }
+
+        #user-btn {
+            display: block;
+            background: #442818;
+            border-radius: 5px;
+            height: 48px;
+            width: 250px;
+            line-height: 48px;
+            text-align: center;
+            font-size: 18px;
+            color: #fff;
+            border: 0;
+            cursor: pointer;
+            color: #fff;
+            margin:10px auto;;
+        }
+        .register{
+            margin: 15px;
+            text-align:right;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header-box"></div>
+    <div class="login-background">
+        <div class="content-box">
+            <div class="from-login-box">
+                <div class="login-title">
+                    <h2 class="active">用户注册</h2>
+                </div>
+                <div class="form-content">
+                    <form action="">
+                        <input id="username" placeholder="用户名：请输入长度6~10位字符"><span class="username_span"></span><br>
+                        <input id="userPwd" placeholder="密码:请输入密码" type="password"> <span class="userPwd_span"></span><br>
+                        <button id="user-btn">登录</button>
+                       
+                    </form>
+                    <div class="register"> <a href="" >没有账号?去注册</a></div>
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+    <div id="footer-box"> </div>
+</body>
+<script src="../js/jquery-1.11.3.js"></script>
+<script>
+       $("#header-box").load("header1.html");
+    $("#footer-box").load("http://127.0.0.1:5500/layout/footer.html");
+
+
+
+</script>
+
+</html>

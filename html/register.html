@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册</title>
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../font/font_1428331_fqrejgwv1op/iconfont.css">
+    <style>
+        #header-box {
+            height: 80px;
+        }
+
+        .login-background {
+
+            background: url(../image/bj.png) no-repeat top center;
+            height: 700px;
+        }
+
+
+        .content-box {
+            width: 1180px;
+            margin: 0 auto;
+            position: relative;
+            height: 100%;
+            padding-bottom: 50px;
+        }
+
+        .from-login-box {
+            position: absolute;
+            width: 302px;
+            top: 114px;
+            left: 60%;
+            padding: 28px 42px;
+            border: 1px #E9E9E9 solid;
+            background: #fff;
+        }
+
+        .login-title {
+            height: 25px;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .login-title h2 {
+            font-weight: 400;
+
+        }
+
+        .form-content {
+            padding-top: 15px;
+            text-align: center;
+        }
+
+        .form-content #username,
+        #userPwd1,
+        #userPwd2,
+        #userTel {
+
+            width: 250px;
+            height: 30px;
+            border: #E9E9E9 1px solid;
+            border-radius: 5px;
+            margin-bottom: 20px;
+
+        }
+
+        #userPwd2 {
+            margin-bottom: 0;
+        }
+
+
+        #user-btn {
+            display: block;
+            background: #442818;
+            border-radius: 5px;
+            height: 48px;
+            width: 250px;
+            line-height: 48px;
+            text-align: center;
+            font-size: 18px;
+            color: #fff;
+            border: 0;
+            cursor: pointer;
+            color: #fff;
+            margin: 10px auto;
+        }
+
+        .register {
+            margin: 15px;
+            text-align: right;
+        }
+
+        .tip {
+            display: block;
+            width: 250px;
+            height: 20px;
+            line-height: 20px;
+            text-align: left;
+            margin: 0 auto;
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header-box"></div>
+    <div class="login-background">
+        <div class="content-box">
+            <div class="from-login-box">
+                <div class="login-title">
+                    <h2 class="active">用户登录</h2>
+                </div>
+                <div class="form-content">
+                    <form action="" >
+                        <input id="username" placeholder="用户名：请输入长度6~10位字符"><span class="username_span"></span><br>
+                        <input id="userTel" placeholder="手机号:请输入常见的手机号"><span class="userTel_span"></span>
+                        <input id="userPwd1" placeholder="密码:请输入数字字母组成长度6~12位字符" type="password"> <span
+                            class="userPwd1_span"></span><br>
+                        <input id="userPwd2" placeholder="确认密码:请与密码保持一致" type="password"><span
+                            class="userPwd2_span"></span><br>
+                        <span class="tip"> </span>
+                        <button id="user-btn">注册</button>
+
+                    </form>
+                    <div class="register"> <a href="">已有账号?去登录</a></div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <div id="footer-box"> </div>
+</body>
+<script src="../js/jquery-1.11.3.js"></script>
+<script>
+    $("#header-box").load("header1.html");
+    $("#footer-box").load("http://127.0.0.1:5500/layout/footer.html")
+
+    //表单验证
+    $("#username").change(function () {
+        var username = $("#username").val();
+        var usernameReg = /^[a-zA-Z_$][0-9a-zA-Z_$]{5,9}$/g;
+        if (usernameReg.test(username)) {
+            $(".username_span").css("color", "green").html("√");
+            $("#username").css("border", "1px #E9E9E9 solid");
+            $(".tip").html("")
+
+        } else {
+            $(".username_span").css("color", "red").html("×");
+            $("#username").css("border", "1px red solid");
+            $(".tip").html("！用户名不合法").css("color", "red");
+        }
+    })
+    $("#userTel").change(function () {
+        var tel = $("#userTel").val();
+        var telReg = /^1[35789][0-9]{9}$/g;
+        if (telReg.test(tel)) {
+            $(".userTel_span").html("√").css("color", "green");
+            $("#userTel").css("border", "1px #E9E9E9 solid");
+            $(".tip").html("")
+        } else {
+            $(".userTel_span").html("×").css("color", "red");
+            $("#userTel").css("border", "1px red solid");
+            $(".tip").html("！请输入正确的手机号").css("color", "red");
+        }
+    })
+    $("#userPwd1").change(function () {
+        var userPwd1 = $("#userPwd1").val();
+        var passwordReg = /^[0-9a-zA-Z]{6,12}$/g;
+        if (passwordReg.test(userPwd1)) {
+            // passwordSpan.innerHTML = "√";
+            // passwordSpan.style.color = "green";
+            var numCount = (/[0-9]/g).test(userPwd1) ? 1 : 0;
+            var lowerCount = (/[a-z]/g).test(userPwd1) ? 1 : 0;
+            var upperCount = (/[A-Z]/g).test(userPwd1) ? 1 : 0;
+            switch (numCount + lowerCount + upperCount) {
+                case 1:
+                    $(".userPwd1_span").html("弱").css("color", "red")
+                    $("#userPwd1").css("border", "1px #E9E9E9 solid");
+                    $(".tip").html("")
+                    break;
+                case 2:
+                    $(".userPwd1_span").html("中").css("color", "yellow");
+                    $("#userPwd1").css("border", "1px #E9E9E9 solid");
+                    $(".tip").html("")
+                    break;
+                case 3:
+                    $(".userPwd1_span").html("强").css("color", "green");
+                    $("#userPwd1").css("border", "1px #E9E9E9 solid");
+                    $(".tip").html("")
+                    break;
+
+            }
+
+
+        } else {
+            $(".userPwd1_span").html("×").css("color", "red")
+            $("#userPwd1").css("border", "1px red solid");
+            $(".tip").html("！请输入数字字母组成长度6~12位字符密码").css("color", "red");
+        }
+
+    })
+
+    $("#userPwd2").change(function () {
+        var confirmPsw = $("#userPwd2").val();
+        var userPwd1 = $("#userPwd1").val();
+        if (userPwd1 == confirmPsw) {
+            if (confirmPsw == "") {
+                $(".userPwd2_span").html("×").css("color", "red");
+                $("#userPwd2").css("border", "1px red solid");
+                $(".tip").html("！请输入密码").css("color", "red");
+
+            } else {
+                $(".userPwd2_span").html("√").css("color", "green");
+                $("#userPwd2").css("border", "1px #E9E9E9 solid");
+                $(".tip").html("")
+            }
+        } else {
+            $(".userPwd2_span").html("×").css("color", "red");
+            $("#userPwd2").css("border", "1px red solid");
+            $(".tip").html("！密码不一致").css("color", "red");
+        }
+
+    })
+  
+  $("#user-btn").click(function(){
+      window.location.href="http://localhost/21cake/html1/login.html";
+    // var username = $("#username").val();
+    // var userPwd1 = $("#userPwd1").val();
+    // var userTel = $("#userTel").val();
+    // $.ajax({
+    //     type:"get",
+    //     url:"http://localhost/21cake/php/register.php",
+    //    data:{
+    //        username:username,
+    //        userTel:userTel,
+    //        userPwd1:userPwd1
+    //    },
+    //    success:function(obj){
+    //         var date = JSON.parse(obj);
+    //         alert(date.code);
+    //         if(obj.code==1){
+    //            window.location.href("login.html")
+    //         }else{
+    //             alert(date.msg)
+    //         }
+        
+    //    }
+       
+    // })
+
+
+
+
+  })
+
+
+
+
+
+</script>
+
+</html>

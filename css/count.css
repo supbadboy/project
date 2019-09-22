@@ -1,0 +1,13 @@
+.content-box {
+  width: 100%; }
+  .content-box .content {
+    width: 1200px;
+    margin: 0 auto; }
+    .content-box .content .liang {
+      width: 500px;
+      background: yellow;
+      text-align: center;
+      height: 500px;
+      line-height: 500px; }
+
+/*# sourceMappingURL=count.css.map */
